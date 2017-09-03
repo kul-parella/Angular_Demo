@@ -1,0 +1,69 @@
+<h1 class="special">Helloworld from html<h1>
+
+<!--
+<span *ngIf="showName">{{name}}</span>
+<span *ngIf="!showName">name not showing</span>
+-->
+
+<!-- *if else-->
+<h1>Hello
+<span  *ngIf="showName; else noName">{{name}}</span>
+<ng-template #noName>World</ng-template>
+</h1>
+<br/>
+
+<!-- other way -->
+<p> Hello {{showName? name: 'world'}}</p>
+
+<!-- *ngSwitch -->
+
+<div [ngSwitch]="greeting">
+    <div *ngSwitchCase="'1'">Hello World</div>
+    <div *ngSwitchCase="'2'">Hi there</div>
+    <div *ngSwitchCase="'3'">whats up</div>
+    <div *ngSwitchDefault>Hello </div>
+</div>
+
+
+
+<!-- *ngFor -->
+{{people}}   
+
+<ul>
+    <li *ngFor="let person of people">
+        {{person}}
+    </li>
+</ul> 
+
+
+<ul>
+    <li *ngFor="let person of people; let i = index">
+       {{i+1}} {{person}}
+    </li>
+</ul> 
+
+<ul>
+    <li *ngFor="let person of people2">
+        {{person.firstname}} {{person.lastname}}
+    </li>
+</ul>
+
+
+<!-- 3 ways to bing properties -->
+
+<div><img src= "{{imageUrl}}"></div>
+
+<div> <img [src]="imageUrl"></div>
+
+<div> <img bind-src="imageUrl"></div>
+
+<h4>Image location: <span [textContent]="imageUrl"></span>
+
+<hr>
+
+<h2>Created post</h2>
+<p [hidden]="isUnchanged">
+Post has been changed, please save
+</p>
+
+<button [disabled]="isUnchanged">Save</button>
